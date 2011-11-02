@@ -1,9 +1,12 @@
 require 'sinatra/base'
-require 'erb'
+# require 'erb'
+require 'haml'
+require 'sass/plugin/rack'
 require 'redcarpet'
 
 module Copy 
-  class Server < Sinatra::Base    
+  class Server < Sinatra::Base 
+    use Sass::Plugin::Rack   
     set :views,  './views'
     set :public, './public'
     set :root, File.dirname(File.expand_path(__FILE__))
